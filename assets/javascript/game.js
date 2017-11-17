@@ -40,7 +40,7 @@ function lossTozero () {
 	document.getElementById("losses").innerHTML = 'Losses: ' + beginningLosses;
 
 }
-//Created a function to reset "remaining guesses" to 0
+//Created a function to reset "remaining guesses" to 10
 function resetRemainingGuess () {
 	var remainingGuesses = 10
 	document.getElementById("guess-left").innerHTML = 'Guesses Left: ' + remainingGuesses;
@@ -61,8 +61,9 @@ document.onkeyup = function(event) {
  		beginningWins = beginningWins + 1;
 		document.getElementById("wins").innerHTML = 'Wins: ' + beginningWins;
 
-		remainingGuesses = 10;
-		document.getElementById("guess-left").innerHTML = 'Guesses Left: ' + remainingGuesses;
+		//calling function to reset remaining guesses to 10
+
+		resetRemainingGuess(remainingGuesses)
 
 		//calling function to reset previous guesses to empty string
 		resetGuesses(previousGuesses);
@@ -119,6 +120,7 @@ document.onkeyup = function(event) {
 		resetRemainingGuess(remainingGuesses);
 
 		//calling function to reset previous guesses to empty string
+		previousGuesses = ''
 		resetGuesses(previousGuesses);
 
 		//calling funcion to reset beginning wins to 0
@@ -140,14 +142,14 @@ document.onkeyup = function(event) {
 		remainingGuesses = 10;
 		resetRemainingGuess(remainingGuesses);
 
-		// call function to reset beginning wins to an empty string
+		// calling function to reset beginning wins to an empty string
 		resetGuesses(previousGuesses);
 	
-		// call funtion to reset beginning wins to 0 and show in html
+		// calling funtion to reset beginning wins to 0 and show in html
 
 		winsTozero(beginningWins);
 
-		// call function to reset beginning losses to 0..would not work unless i set beginning losses to 0)
+		// calling function to reset beginning losses to 0..would not work unless i set beginning losses to 0)
 
 		beginningLosses = 0
 		lossTozero(beginningLosses)
