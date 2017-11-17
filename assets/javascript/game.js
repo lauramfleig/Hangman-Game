@@ -20,6 +20,7 @@ console.log(psychicGuess)
 function resetGuesses () {
 
 	var previousGuesses = '';
+
 	document.getElementById("so-far").innerHTML = 'Your Guesses So far: ' + previousGuesses;
 }
 
@@ -37,12 +38,16 @@ function winsTozero () {
 function lossTozero () {
 
 	var beginningLosses = 0;
+
 	document.getElementById("losses").innerHTML = 'Losses: ' + beginningLosses;
 
 }
 //Created a function to reset "remaining guesses" to 10
+
 function resetRemainingGuess () {
+
 	var remainingGuesses = 10
+
 	document.getElementById("guess-left").innerHTML = 'Guesses Left: ' + remainingGuesses;
 
 }
@@ -56,6 +61,9 @@ document.onkeyup = function(event) {
  	if (userGuess === psychicGuess) {
 
  		psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+
+ 		//check what the psychic guessed in the console for testing purposes
+
  		console.log(psychicGuess);
 
  		beginningWins = beginningWins + 1;
@@ -66,6 +74,7 @@ document.onkeyup = function(event) {
 		resetRemainingGuess(remainingGuesses)
 
 		//calling function to reset previous guesses to empty string
+
 		resetGuesses(previousGuesses);
 		
 	//If the user guesses incorrectly
@@ -84,6 +93,7 @@ document.onkeyup = function(event) {
  		remainingGuesses = remainingGuesses - 1;
 
  		//show this new string on the page
+
  		document.getElementById("guess-left").innerHTML = 'Guesses Left: ' + remainingGuesses;
 
  	} 
@@ -101,10 +111,12 @@ document.onkeyup = function(event) {
  		document.getElementById("losses").innerHTML = 'Losses: ' + beginningLosses;
 
 		//calling function to reset previous guesses to empty string
+
  		previousGuesses = ''
  		resetGuesses(previousGuesses);
 
  		//calling function to reset previous guesses to 10...would not work unless i included the variable
+
  		remainingGuesses = 10
  		resetRemainingGuess(remainingGuesses)
  		
@@ -116,18 +128,22 @@ document.onkeyup = function(event) {
 		alert ('You Have Been Granted 3 Wishes!')
 
 		//calling function to reset remaining guesses to 10
+
 		remainingGuesses = 10
 		resetRemainingGuess(remainingGuesses);
 
 		//calling function to reset previous guesses to empty string
+
 		previousGuesses = ''
 		resetGuesses(previousGuesses);
 
 		//calling funcion to reset beginning wins to 0
+
 		beginningWins = 0;
 		winsTozero(beginningWins)
 
 		//calling function to reset beginning losses to 0
+
 		lossTozero(beginningLosses)
 
 	}
@@ -139,10 +155,12 @@ document.onkeyup = function(event) {
 		alert ('Leave At Once! No Wishes for You!')
 
 		//calling function to reset remaining guesses at 10
+
 		remainingGuesses = 10;
 		resetRemainingGuess(remainingGuesses);
 
 		// calling function to reset beginning wins to an empty string
+
 		resetGuesses(previousGuesses);
 	
 		// calling funtion to reset beginning wins to 0 and show in html
